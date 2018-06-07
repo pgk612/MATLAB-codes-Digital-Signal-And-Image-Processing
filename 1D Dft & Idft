@@ -1,0 +1,17 @@
+N=input('Enter the number of inputs.');
+a=zeros(N,1);
+for i=1:N
+    a(i)=input('Enter value');
+end
+W=zeros(N,N);
+for k=1:N
+    for n=1:N
+        W(k,n)= exp(((-2)*pi*(k-1)*(n-1)*1i)/N);
+    end
+end
+dft=W*a;
+idft=(1/N)*conj(W)*dft;
+fprintf('\nDFT is\n');
+disp(dft);
+fprintf('\nIDFT is\n');
+disp(idft);
