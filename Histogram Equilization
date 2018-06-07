@@ -1,0 +1,49 @@
+a=imread('C:\Users\Exam\Downloads\baby.png');
+[r c]=size(a);
+numofpixels=r*c;
+
+b=uint8(zeros(r,c));
+freq=zeros(256,1);
+probf=zeros(256,1);
+probc=zeros(256,1);
+cum=zeros(256,1);
+output=zeros(256,1);
+
+for i=1:r;
+    for j=1:c;
+        x=a(i,j);
+        freq(x+1)=freq(x+1)+1;
+        probf(x+1)=freq(x+1)/numofpixels;
+end
+
+end
+sum=0; 
+
+for i=1:size(probf)
+       sum=sum+freq(i);
+       cum(i)=sum;
+       probc(i)=cum(i)/numofpixels;
+       output(i)=round(probc(i)*255);
+
+end
+
+for i=1:r
+for j=1:c
+  b(i,j)=output(a(i,j)+1);
+ end
+end
+
+subplot(2,2,1)
+imshow(a);
+title('dark image');
+subplot(2,2,2)
+imhist(a);
+xlabel('gray levels')
+ylabel('no of pixels')
+subplot(2,2,3)
+imshow(b);
+title('histogram equilized image')
+subplot(2,2,4)
+imhist(b);
+xlabel('gray levels')
+ylabel('no of pixels')
