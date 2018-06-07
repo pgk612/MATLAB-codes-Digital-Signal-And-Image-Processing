@@ -1,0 +1,19 @@
+N=input('Enter the range of inputs');
+a=zeros(N,N);
+for i=1:N
+    for j=1:N
+        a(i,j)=input('Enter value');
+    end
+end
+W=zeros(N,N);
+for k=1:N
+    for n=1:N
+        W(k,n)= exp(((-2)*pi*(k-1)*(n-1)*1i)/N);
+    end
+end
+dftop=W*a*W;
+idft=(1/N)*(1/N)*conj(W)*dftop*conj(W);
+fprintf('\nDFT is\n');
+disp(dft);
+fprintf('\nIDFT is\n');
+disp(idft);
