@@ -8,7 +8,7 @@ probf=zeros(256,1);
 probc=zeros(256,1);
 cum=zeros(256,1);
 output=zeros(256,1);
-
+%calculating frequencies and probabilities
 for i=1:r;
     for j=1:c;
         x=a(i,j);
@@ -32,7 +32,7 @@ for j=1:c
   b(i,j)=output(a(i,j)+1);
  end
 end
-
+%Plotting the four graphs
 subplot(2,2,1)
 imshow(a);
 title('dark image');
@@ -42,7 +42,8 @@ xlabel('gray levels')
 ylabel('no of pixels')
 subplot(2,2,3)
 imshow(b);
-title('histogram equilized image')
+%final histogram images
+title('Final Histogram equalized  Image')
 subplot(2,2,4)
 imhist(b);
 xlabel('gray levels')
