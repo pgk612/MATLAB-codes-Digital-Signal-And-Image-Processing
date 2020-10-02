@@ -1,0 +1,22 @@
+subplot(2,3,1)
+a=imread('C:\Users\Govind Kalena\Downloads\tree.jpg');
+imshow(a);
+subplot(2,3,2)
+b=rgb2gray(a);
+imshow(b);
+
+[r c]=size(b);
+s=b;
+t=input('enter your threshold value');
+for i=1:r
+    for j=1:c
+        if(b(i,j)>t)
+            s(i,j)=0;
+        else
+            s(i,j)=255;
+        end
+    end
+end
+
+subplot(2,3,3)
+imshow(s);
